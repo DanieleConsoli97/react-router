@@ -1,6 +1,8 @@
+import NavBar from "../components/navbar"
 const Chisiamo = ()=>{
     return (
         <>
+        
         <h1>Chi siamo</h1>
         </>
     )

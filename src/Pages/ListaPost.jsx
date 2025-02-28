@@ -1,8 +1,9 @@
-const listaPost = ()=>{
+import NavBar from "../components/navbar"
+const ListaPost = ()=> {
     return (
         <>
-        <h1>Contatti</h1>
+            <h1>posts</h1>
         </>
     )
 }
-export default listaPost
+export default ListaPost
