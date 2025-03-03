@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 const ListaPost = () => {
     const [posts, setPosts] = useState([]);
     function fetchPost() {
@@ -10,38 +10,41 @@ const ListaPost = () => {
             .then((res) => res.json())
             //NOTE - diamo a setPosts il valore della response
             .then(setPosts)
-            .catch(error => {
-                console.error('Errore:', error);
+            .catch((error) => {
+                console.error("Errore:", error);
             });
     }
-    useEffect(fetchPost, [])
+    useEffect(fetchPost, []);
     return (
         <>
-
-            {
-
-                posts.map((post) => {
-                    //NOTE - destructuring object
-                    const { id, title, image, tags, content } = post
-                    return (
-                        <NavLink to={`/post/${id}`}>
-                            <ul key={id}>
-                                <li><h1>{title}</h1></li>
-                                <li><img className="table_image" src={`http://localhost:3000/public${image}`} alt="" /></li>
-                                <li><p>{content}</p></li>
-                                <li><p>{tags}</p></li>
-                            </ul>
-                        </NavLink>
-                    )
-                })
-            }
-
-
-
-
-
+            {posts.map((post) => {
+                //NOTE - destructuring object
+                const { id, title, image, tags, content } = post;
+                return (
+                    <NavLink to={`/post/${id}`}>
+                        <ul key={id}>
+                            <li>
+                                <h1>{title}</h1>
+                            </li>
+                            <li>
+                                <img
+                                    className="table_image"
+                                    src={`http://localhost:3000/public${image}`}
+                                    alt=""
+                                />
+                            </li>
+                            <li>
+                                <p>{content}</p>
+                            </li>
+                            <li>
+                                <p>{tags}</p>
+                            </li>
+                        </ul>
+                    </NavLink>
+                );
+            })}
         </>
-    )
-}
+    );
+};
 
 export default ListaPost;
